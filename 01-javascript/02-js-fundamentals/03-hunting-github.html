@@ -1,1 +1,38 @@
-// 1 hour
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hunting Github</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('button').click(function() {
+                $.get("https://api.github.com/users/edonaDev", displayName)
+                var name;
+
+                function displayName(data) {
+                    name = data.name;
+                    $('button').after("<h1>" + name + "</h1>")
+
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="cantainer">
+        <div class="text-center">
+            <h1>Hunting Github</h1>
+            <button type="button" class="btn btn-primary">Display Your Name</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
