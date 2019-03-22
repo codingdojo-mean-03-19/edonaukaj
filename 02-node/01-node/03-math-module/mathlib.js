@@ -9,11 +9,11 @@ module.exports = function() {
 
 
         },
-        square: function(num) {
-            num * num;
+        square: function(num1) {
+            return num1 * num1;
         },
         random: function(num1, num2) {
-            return Math.floor(math.random() * num2) + 1;
+            return Math.floor(Math.random() * 40) + 1;
         }
     };
 };
