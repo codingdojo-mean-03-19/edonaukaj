@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page I</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center">
+            <% for (let i=0; i<1; i++) { %>
+                <h1 class="text-center bg-info text-black">Details Page for
+                    <%= cat.name%>
+                </h1>
+                <img class="rounded-circle mx-auto d-block" src="<%= cat.img %>" alt="Cat" width="304" height="236"><br>
+                <p class="w-50 p-3 bg-success text-white text-center">Favourite food:
+                    <%= cat.food %>
+                </p>
+                <p class="w-50 p-3 bg-success text-white text-center">Age:
+                    <%= cat.age %>
+                </p>
+                <p class="w-50 p-3 bg-success text-white text-center">
+                    <%= cat.life %>
+                </p>
+
+
+                <% } %>
+        </div>
+    </div>
+
+</body>
+
+</html>
