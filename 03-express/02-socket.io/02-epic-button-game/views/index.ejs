@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.comm/ajax/libs/socket.io/2.0.3/socket.io.js" charset="utf-8"></script>
+    <title>The great button game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script>
+        $(document).ready(function() {
+            var socket = io.connect();
+
+            socket.on('numberUpdated', function(number) {
+                $('#number').text(number);
+            });
+
+            $('#epic').click(function() {
+                socket.emit('buttonClicked');
+            });
+            $('#reset').click(function() {
+                socket.emit('reset');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h3> The button has been pushed <span class="" id="number">0</span> time(s)</h3>
+            <div class="col-sm-12">
+                <p>Push the button to update the count!</p>
+                <button type="submit" class="btn btn-primary btn-lg" id="epic">Push the epic button</button>
+                <button type="submit" class="btn btn-danger" id="reset">Reset count</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
