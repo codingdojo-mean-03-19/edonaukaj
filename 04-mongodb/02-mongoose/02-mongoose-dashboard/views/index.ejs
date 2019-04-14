@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dogs Hompage</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Weight</th>
+                    <th>Color</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (const dog of dogs) { %>
+                    <tr>
+                        <td>
+                            <%= dog._id %>
+                        </td>
+                        <td>
+                            <%= dog.name %>
+                        </td>
+                        <td>
+                            <%= dog.weight%>
+                        </td>
+                        <td>
+                            <%= dog.color %>
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-success" href="/mongooses/<%= dog._id %>" role="button">Show</a>
+                            <a class="btn btn-outline-primary" href="/mongooses/edit/<%= dog._id %>" role="button">Edit</a>
+                            <a class="btn btn-outline-danger" href="/mongooses/destroy/<%= dog._id %>" role="button">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="/mongooses/new" role="button">Add new dog</a>
+
+    </div>
+
+</body>
+
+</html>
