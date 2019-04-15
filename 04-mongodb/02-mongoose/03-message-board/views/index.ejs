@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>The Dojo Message Board</h1>
+        <form action="/post" method="post">
+            <div class="col-sm-10">
+                Name:
+                <input type="text" name="name" class="form-control" id="name"> Message:
+                <textarea rows="5" cols="170" name="message" class="form-control" id="message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Post Message</button>
+        </form>
+        <%for(var x of p){%>
+            <h2>Name:
+                <%=x.name%>
+            </h2>
+            <h2>Comment:
+                <%=x.message%>
+            </h2>
+            <%for(var y of x.comments){%>
+                <h3>Name:
+                    <%= y.name%>
+                </h3>
+                <h3>Comment:
+                    <%= y.message%>
+                </h3>
+                <%}%>
+                    <form action="/comment/<%=x._id%>" method="post">
+                        <div class="col-sm-10">
+                            Name:
+                            <input type="text" name="comment_name" class="form-control" id="comment_name"> Comment:
+                            <textarea rows="5" cols="150" name="comment_message" class="form-control" id="comment_message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+                    <%}%>
+    </div>
+
+
+</body>
+
+</html>
