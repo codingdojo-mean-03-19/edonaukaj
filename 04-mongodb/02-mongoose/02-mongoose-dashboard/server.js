@@ -14,7 +14,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Create connection to database
-mongoose.connect("mongodb://localhost/dog_db", { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/dog_db', { useNewUrlParser: true });
 
 // Create dog schema and attach it as a model to our database
 const DogSchema = new mongoose.Schema({
@@ -25,7 +25,7 @@ const DogSchema = new mongoose.Schema({
 
 // Mongoose automatically looks for the plural version of your model name, so a Dog model in Mongoose looks for 'dogs' in Mongo.
 mongoose.model('Dog', DogSchema);
-const Dog = mongoose.model('Dog')
+const Dog = mongoose.model('Dog');
 
 // Routes go here!
 app.get('/', function(req, res) {
