@@ -1,3 +1,3 @@
 # Platform Content
 
-Follow along with platform examples here
+    Including Hello-Angular assignment.
