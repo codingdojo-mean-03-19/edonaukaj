@@ -1,0 +1,30 @@
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+
+const AuthorsSchema = new Schema({
+    firstName: {
+        type: String,
+        trim: true,
+        required: [true, 'First name is required'],
+        minlength: [2, 'First name must be at least 2 characters']
+
+    },
+    lastName: {
+        type: String,
+        trim: true,
+        required: [true, 'Last name is required'],
+        minlength: [2, 'Last name must be at least 2 characters']
+    },
+    countryOfOrigin: {
+        type: String,
+        trim: true,
+        minlength: [3, 'Country of origin must be at least 3 characters']
+    },
+    books: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Book'
+    }]
+
+}, { timestamps: true });
+
+module.exports = mongoose.model('Author', AuthorsSchema);
